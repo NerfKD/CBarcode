@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Ana Relative-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp">
+<!--Ana Linear-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10" >
+
+<!--Üst Linear-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:layout_weight="2">
+<!--Üst Sol Linear(Barkod,Miktar)-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:weightSum="4">
+<!--Üst Sol Üst Linear(Barkod)-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/infoBarkod"
+                        app:layout_constraintBottom_toTopOf="@+id/infoMiktar"
+                        app:layout_constraintEnd_toStartOf="@+id/txtBarkod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:editable="false"
+                        android:text="Barkod : "
+                        android:textSize="20sp" />
+                    <EditText
+                        android:id="@+id/txtBarkod"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#E8E6E6"
+                        android:paddingTop="9dp"
+                        android:ems="10"
+                        android:inputType="number"
+
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+<!--Üst Sol Alt Linear(Miktar)-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/infoMiktar"
+                        app:layout_constraintEnd_toStartOf="@+id/txtMiktar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/infoBarkod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:text="Miktar : "
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="20sp" />
+                    <EditText
+                        android:id="@+id/txtMiktar"
+                        app:layout_constraintBottom_toTopOf="@+id/btnEkle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtBarkod"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="#E8E6E6"
+                        android:ems="10"
+                        android:paddingTop="9dp"
+                        android:layout_marginLeft="6dp"
+
+                        android:inputType="number"
+                        android:textSize="20sp" />
+                    <Button
+                        android:id="@+id/btnEkle"
+                        app:layout_constraintBottom_toTopOf="@+id/recListe"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtMiktar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="EKLE"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+<!--Orta Linear(Recycler)-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <EditText
+                        android:id="@+id/txtSearch"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#E8E6E6"
+                        android:paddingTop="9dp"
+                        android:ems="10"
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/textview_border"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/txtOrder"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:editable="false"
+                            android:text="Sıra"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:layout_marginLeft="2dp"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/textview_border"
+                        android:layout_weight="3">
+
+                        <TextView
+                            android:id="@+id/txtBarcode"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Barkod"
+                            android:textColor="#000000"
+                            android:gravity="center"
+                            android:layout_marginLeft="2dp"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/textview_border"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/txtQuantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Miktar"
+                            android:textColor="#000000"
+                            android:layout_marginLeft="2dp"
+                            android:gravity="center"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recListe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnEkle" />
+        </LinearLayout>
+<!--Alt Linear-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="4">
+
+<!--Alt Sol Linear(Kaydet)-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="2">
+            <Button
+                android:id="@+id/btnKaydet"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/btnSil"
+                app:layout_constraintTop_toBottomOf="@+id/recListe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginRight="10dp"
+
+
+                android:text="Kaydet"
+                android:textSize="20sp" />
+        </LinearLayout>
+<!--Alt Sağ Linear(Temizle)-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="2">
+            <Button
+                android:id="@+id/btnSil"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recListe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="SİL"
+                android:textSize="20sp" />
+        </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+
